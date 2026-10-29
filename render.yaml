@@ -11,3 +11,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.13.7
+
+        # Tell NLTK where to find the downloaded stopwords
+      - key: NLTK_DATA
+        value: /opt/render/nltk_data

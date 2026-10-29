@@ -2,7 +2,11 @@ import nltk
 
 # Download the English stopwords dataset
 # Required by preprocess.py during SMS prediction
-nltk.download("stopwords", raise_on_error=True)
+nltk.download(
+    "stopwords", 
+    download_dir="/opt/render/nltk_data",
+    raise_on_error=True
+)
 
 print("NLTK stopwords downloaded successfully!")
 
