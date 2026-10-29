@@ -1,4 +1,9 @@
 import nltk
+from pathlib import Path
+
+# Create an NLTK data folder inside the project
+nltk_data_path = Path(__file__).resolve().parent / "nltk_data"
+nltk_data_path.mkdir(parents=True, exist_ok=True)
 
 # Download the English stopwords dataset
 # Required by preprocess.py during SMS prediction
@@ -8,7 +13,14 @@ nltk.download(
     raise_on_error=True
 )
 
-print("NLTK stopwords downloaded successfully!")
+# Verify that the downloaded stopwords can be loaded
+nltk.data.path.insert(0, str(nltk_data_path))
+
+from nltk.corpus import stopwords
+
+print("Stopwords available:", len(stopwords.words("english")))
+
+#print("NLTK stopwords downloaded successfully!")
 
 
 
