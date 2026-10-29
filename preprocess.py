@@ -1,10 +1,17 @@
 import string
 import re
+import os
 import nltk
 from nltk.corpus import stopwords
 
 # Download the English stopword list if it is not already installed
 #nltk.download("stopwords", quiet=True)
+
+# Add the NLTK data directory used during deployment
+nltk.data.path.insert(
+    0,
+    os.environ.get("NLTK_DATA", "/opt/render/project/src/nltk_data")
+)
 
 # Create a set of English stopwords
 stop_words = set(stopwords.words("english"))

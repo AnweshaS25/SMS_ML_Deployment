@@ -6,7 +6,8 @@ services:
 
     buildCommand: pip install -r requirements.txt && python download_nltk.py
 
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    # Download NLTK stopwords before starting FastAPI
+    startCommand: python download_nltk.py && uvicorn main:app --host 0.0.0.0 --port $PORT
 
     envVars:
       - key: PYTHON_VERSION
